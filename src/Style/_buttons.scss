@@ -1,0 +1,66 @@
+@use "./variables" as *;
+
+.button {
+  background-color: transparent;
+  color: $secondary-color;
+  border: 1px solid rgba(255, 255, 255, 0.600);
+  border-radius: 10px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 3px 25px;
+
+  &--log {
+    color: #c0c0c0;
+    font-size: 1.4rem;
+  }
+
+  &--register {
+    color: #c0c0c0;
+    background-color: #4aac48ab;
+    font-size: 1.4rem;
+  }
+
+  &--menu {
+    border: none;
+    padding: 0;
+  }
+
+  &--home {
+    font-family: "Cinzel Decorative", cursive;
+    font-size: 2.0rem;
+  }
+
+  &--contact {
+    margin-top: 10px;
+  }
+
+  &--search {
+    margin-left: 20px;
+    background-color: rgba(0, 0, 0, 0.400);
+    font-size: 1.5rem;
+  }
+
+  &--account {
+    margin: 15px auto 15px auto;
+    width: 100%;
+    max-width: 170px;
+  }
+
+  &--close {
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    margin: 5px auto;
+    font-size: 3.0rem;
+    border: none;
+  }
+
+}
+
+.button:hover {
+  color: $primary-color;
+  border-color: $primary-color;
+}

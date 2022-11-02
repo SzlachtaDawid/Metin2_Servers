@@ -1,0 +1,18 @@
+.search {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.71);
+  padding-bottom: 35px;
+
+  &__input {
+    background-color: rgba(0, 0, 0, 0.393);
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
+}

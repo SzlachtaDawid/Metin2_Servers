@@ -1,0 +1,47 @@
+@use "../../Style/mixins" as *;
+
+.home {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  color: #fff;
+  width: 100%;
+  max-width: 450px;
+  padding-bottom: 25px;
+
+  &__title {
+    font-family: "Cinzel Decorative", cursive;
+    font-size: 10rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.66);
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 15px;
+  }
+
+  &__text--italic {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &__btnContainer {
+    padding: 20px 0px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.66);
+    @include setFlex();
+  }
+}
+
+@media all and (max-width: 500px) {
+  .home {
+    max-width: 100%;
+    left: 0;
+    padding: 0 20px;
+
+    &__title {
+      font-size: 8rem;
+    }
+  }
+}

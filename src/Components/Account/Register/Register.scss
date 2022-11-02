@@ -1,0 +1,13 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+
+  &__title {
+    font-size: 2rem;
+    color: #848589;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
