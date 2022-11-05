@@ -9,7 +9,7 @@ function YtChanel(props) {
       <div className="ytChannel__info">
         <p className="ytChannel__text">Widzów: {props.subs}</p>
         <p className="ytChannel__text">Filmy: {props.clips}</p>
-        <p className="ytChannel__text">Wyświetlania: {props.view}</p>
+        <p className="ytChannel__text">Wyświetlania: {props.views}</p>
         <button className="button">Sprawdź</button>
       </div>
     </div>

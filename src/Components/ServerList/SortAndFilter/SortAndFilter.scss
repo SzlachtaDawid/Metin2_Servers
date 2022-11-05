@@ -1,0 +1,30 @@
+@use "../../../Style/mixins" as *;
+
+.sortAndFilter {
+    width: 100%;
+    margin: 0 auto;
+    @include setFlex();
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.71);
+
+    &__title {
+       margin: 5px auto;
+       font-size: 1.6rem;
+    }
+
+    &__container {
+        @include setFlex($justify-content: flex-end);
+    }
+}
+
+@media all and (max-width:900px) {
+    .sortAndFilter {
+        flex-direction: column;
+
+        &__container {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+

@@ -7,6 +7,7 @@ import balmora from "../../assets/img/balmora.png";
 import nerwia2 from "../../assets/img/nerwia2.png";
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
+import SortAndFilter from "./SortAndFilter/SortAndFilter";
 
 const serversList = [
   {
@@ -49,6 +50,20 @@ export default function ServerList() {
   const [servers, setServers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [reverseSort, setReverseSort] = useState(true);
+  const [filterParams, setFilterParams] = useState([
+    {
+      active: false,
+      type: "Hard",
+    },
+    {
+      active: false,
+      type: "Medium",
+    },
+    {
+      active: false,
+      type: "Easy",
+    },
+  ]);
   const background = useContext(BackgroundContext);
 
   // obsługa wyszukiwania
@@ -60,50 +75,49 @@ export default function ServerList() {
     setServers(servers);
   };
 
-  // SORTOWANIE start
-  const sortRate = (a, b) => {
-    return a.rating - b.rating;
+  // obsługa filtrowania
+
+  const filterHandler = (type) => {
+    let newFilterParams = [...filterParams];
+    newFilterParams.forEach((value) => {
+      if (type === value.type) {
+        value.active = !value.active;
+      }
+    });
+    setFilterParams(newFilterParams);
+    filterServer();
   };
 
-  const sortDate = (a, b) => {
-    let aArray = a.date.split(".");
-    let bArray = b.date.split(".");
-    aArray = new Date(aArray[2], aArray[1] - 1, aArray[0]);
-    bArray = new Date(bArray[2], bArray[1] - 1, bArray[0]);
-    return aArray - bArray;
-  };
+  // SORTOWANIE
 
   const sortServer = (typeSort) => {
-    const servers = [...serversList].sort(typeSort);
+    const actualServers = [...servers].sort(typeSort);
     if (reverseSort) {
-      setServers(servers.reverse());
+      setServers(actualServers.reverse());
     } else {
-      setServers(servers);
+      setServers(actualServers);
     }
     setReverseSort(!reverseSort);
   };
 
-  // SORTOWANIE end
+  // FILTROWANIE
 
-  // FILTROWANIE start
-
-  const filterServer = (filterType, params) => {
-    let servers;
-    switch (filterType) {
-      case "type":
-        servers = [...serversList].filter((x) => x.type.includes(params));
-        break;
-      case "status":
-        servers = [...serversList].filter((x) => x.status.includes(params));
-        break;
-
-      default:
-        break;
+  const filterServer = () => {
+    let fltredServers = [];
+    let servers = null;
+    filterParams.forEach((value) => {
+      if (value.active) {
+        servers = serversList.filter((x) => x.type.includes(value.type));
+        console.log(fltredServers)
+        fltredServers.push(...servers);
+      }
+    });
+    if(fltredServers.length === 0){
+      setServers(serversList);
+    } else {
+      setServers(fltredServers);
     }
-    setServers(servers);
   };
-
-  // FILTROWANIE end
 
   function load() {
     if (loading) {
@@ -148,48 +162,7 @@ export default function ServerList() {
           onSearch={(server) => searchHandler(server)}
           placeholder="Nazwa Serwera"
         />
-        <div>
-          <h2>Sortuj</h2>
-          <div>
-            <button className="button" onClick={() => sortServer(sortRate)}>
-              Ocena
-            </button>
-            <button className="button" onClick={() => sortServer(sortDate)}>
-              Data startu
-            </button>
-          </div>
-          <h2>Filtruj</h2>
-          <button
-            className="button"
-            onClick={() => filterServer("type", "Hard")}
-          >
-            hard
-          </button>
-          <button
-            className="button"
-            onClick={() => filterServer("type", "Medium")}
-          >
-            medium
-          </button>
-          <button
-            className="button"
-            onClick={() => filterServer("type", "Easy")}
-          >
-            easy
-          </button>
-          <button
-            className="button"
-            onClick={() => filterServer("status", "ON")}
-          >
-            ON
-          </button>
-          <button
-            className="button"
-            onClick={() => filterServer("status", "OFF")}
-          >
-            OFF
-          </button>
-        </div>
+        <SortAndFilter onSort={sortServer} onFilter={filterHandler} />
       </div>
       <div className="serverList__servers">{load(loading)}</div>
     </div>

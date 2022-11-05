@@ -6,6 +6,7 @@
     min-height: 100vh;
     font-family: inherit;
     background-image: url(./assets/img/Metin_2_Sura.jpg);
+    transition: 0.4s;
 }
 
 .homeP {

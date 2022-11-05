@@ -21,7 +21,7 @@ export default function HomeP() {
       </p>
       <p className="home__text">Szukasz Serwera Metin ? Dobrze trafiłeś !</p>
       <div className="home__btnContainer">
-        <Link to={`serverList`}>
+        <Link to={`/serverList`}>
           <button className="button button--home">Lista Serwerów</button>
         </Link>
       </div>

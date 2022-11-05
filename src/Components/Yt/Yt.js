@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Search from "../UI/Search/Search";
 import "./Yt.scss";
 import YtChanel from "./YtChanel/YtChanel";
+import Sort from "./Sort/Sort"
 import noperfect from "../../assets/img/noperfect.jpg";
 import nismoGT from "../../assets/img/nismoGT.jpg";
 import uzurpator from "../../assets/img/uzurpator.jpg";
@@ -14,48 +15,49 @@ const channelsList = [
     id: 1,
     img: noperfect,
     name: "NoPerfect",
-    subs: "67.598",
-    clips: "249",
-    view: "2.434.183",
+    subs: 67598,
+    clips: 249,
+    views: 2434183,
   },
 
   {
     id: 2,
     img: nismoGT,
     name: "NismoGT",
-    subs: "56.342",
-    clips: "11",
-    view: "1.932.543",
+    subs: 56342,
+    clips: 11,
+    views: 1932543,
   },
   {
     id: 3,
     img: uzurpator,
     name: "Uzurpator Gaming",
-    subs: "26.165",
-    clips: "129",
-    view: "1.632.543",
+    subs: 26165,
+    clips: 129,
+    views: 1632403,
   },
   {
     id: 4,
     img: nch,
     name: "Nayl Chunjo Eny",
-    subs: "3.390",
-    clips: "32",
-    view: "532.543",
+    subs: 3390,
+    clips: 32,
+    views: 532543,
   },
   {
     id: 5,
     img: nismoGT,
     name: "NismoGT",
-    subs: "56.342",
-    clips: "11",
-    view: "1.932.543",
+    subs: 56342,
+    clips: 11,
+    views: 1932543,
   },
 ];
 
-function Yt({ changeBackground }) {
+function Yt() {
   const [channels, setChannels] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [reverseSort, setReverseSort] = useState(true);
   const background = useContext(BackgroundContext);
 
   const searchHandler = (text) => {
@@ -63,6 +65,16 @@ function Yt({ changeBackground }) {
       x.name.toLowerCase().includes(text.toLowerCase())
     );
     setChannels(servers);
+  };
+
+  const sortChannels = (typeSort) => {
+    const actualServers = [...channels].sort(typeSort);
+    if (reverseSort) {
+      setChannels(actualServers.reverse());
+    } else {
+      setChannels(actualServers);
+    }
+    setReverseSort(!reverseSort);
   };
 
   function load() {
@@ -110,6 +122,7 @@ function Yt({ changeBackground }) {
           onSearch={(channels) => searchHandler(channels)}
           placeholder="Nazwa Kanału YT"
         />
+        <Sort onSort={sortChannels}/>
       </div>
       <div className="ytList__channels">{load(loading)}</div>
     </div>

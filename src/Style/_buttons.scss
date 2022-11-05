@@ -58,6 +58,15 @@
     border: none;
   }
 
+  &--sortAndFilter {
+    margin: 5px 5px;
+  }
+
+  &--activeBtn {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+  }
+
 }
 
 .button:hover {

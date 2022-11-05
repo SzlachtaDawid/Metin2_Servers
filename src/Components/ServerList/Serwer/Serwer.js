@@ -12,7 +12,7 @@ export default function Serwer(props) {
           <h1 className="server__title">{props.name}</h1>
           <div className="server__info">
             <p className="server__info--text">Ocena: {props.rating} / 5</p>
-            <p className="server__info--text">Typ: {props.typ}</p>
+            <p className="server__info--text">Typ: {props.type}</p>
             <p className="server__info--text">Start: {props.date}</p>
             <p className="server__info--text">Status: {props.status}</p>
           </div>

@@ -27,7 +27,7 @@ function Nav() {
         <p>Mt2 servers</p>
       </div>
       <div className="nav__menu">
-        <NavLink end to={`/`} activeclassname={style.active}>
+        <NavLink end to={`/Metin2_Servers`} activeclassname={style.active}>
           <button
             className="button button--menu"
             onClick={() => setMenu(false)}

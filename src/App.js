@@ -30,7 +30,7 @@ function App() {
         <Routes>
           <Route
             exact={true}
-            path="/"
+            path="/Metin2_Servers"
             element={<HomeP/>}
           />
           <Route
