@@ -108,7 +108,6 @@ export default function ServerList() {
     filterParams.forEach((value) => {
       if (value.active) {
         servers = serversList.filter((x) => x.type.includes(value.type));
-        console.log(fltredServers)
         fltredServers.push(...servers);
       }
     });
