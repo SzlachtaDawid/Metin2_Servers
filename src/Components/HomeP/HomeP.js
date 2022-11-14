@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./HomeP.scss";
 import BackgroundContext from "../../context/backgroundContext";
 
-export default function HomeP() {
+const HomeP = () => {
   const background = useContext(BackgroundContext);
 
   useEffect(() => {
@@ -27,4 +27,6 @@ export default function HomeP() {
       </div>
     </div>
   );
-}
+};
+
+export default HomeP;
