@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./HomeP.scss";
 import BackgroundContext from "../../context/backgroundContext";

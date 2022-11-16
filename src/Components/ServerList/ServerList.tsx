@@ -9,6 +9,17 @@ import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 import SortAndFilter from "./SortAndFilter/SortAndFilter";
 
+interface Server {
+  id: number;
+  img: string;
+  name: string;
+  rating: number;
+  type: string;
+  date: string;
+  status: string;
+  describe: string;
+}
+
 const serversList = [
   {
     id: 1,
@@ -47,7 +58,7 @@ const serversList = [
 ];
 
 export default function ServerList() {
-  const [servers, setServers] = useState(null);
+  const [servers, setServers] = useState<Server[] | null >(null);
   const [loading, setLoading] = useState(true);
   const [reverseSort, setReverseSort] = useState(true);
   const [filterParams, setFilterParams] = useState([
@@ -68,7 +79,7 @@ export default function ServerList() {
 
   // obsługa wyszukiwania
 
-  const searchHandler = (text) => {
+  const searchHandler = (text: string) => {
     const servers = [...serversList].filter((x) =>
       x.name.toLowerCase().includes(text.toLowerCase())
     );
@@ -77,7 +88,7 @@ export default function ServerList() {
 
   // obsługa filtrowania
 
-  const filterHandler = (type) => {
+  const filterHandler = (type: string) => {
     let newFilterParams = [...filterParams];
     newFilterParams.forEach((value) => {
       if (type === value.type) {
@@ -91,13 +102,15 @@ export default function ServerList() {
   // SORTOWANIE
 
   const sortServer = (typeSort) => {
-    const actualServers = [...servers].sort(typeSort);
+    if(servers) {
+      const actualServers = servers.sort(typeSort);
     if (reverseSort) {
       setServers(actualServers.reverse());
     } else {
       setServers(actualServers);
     }
     setReverseSort(!reverseSort);
+    }
   };
 
   // FILTROWANIE
@@ -135,7 +148,6 @@ export default function ServerList() {
             wrapperStyle={{
               margin: "30px auto",
             }}
-            wrapperClassName=""
             visible={true}
           />
         </div>

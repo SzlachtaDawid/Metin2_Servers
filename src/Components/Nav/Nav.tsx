@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import style from "./Nav.scss";
+import "./Nav.scss";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Nav() {
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState<boolean>(false);
 
   return (
-    // masz zrobic to w sass oraz dodac react modules css i dodac globalne zmienne sass
     <div className={menu ? "nav nav--open" : "nav"}>
       {menu ? (
         <FontAwesomeIcon
@@ -27,7 +26,7 @@ function Nav() {
         <p>Mt2 servers</p>
       </div>
       <div className="nav__menu">
-        <NavLink end to={`/Metin2_Servers`} activeclassname={style.active}>
+        <NavLink end to={`/Metin2_Servers`}>
           <button
             className="button button--menu"
             onClick={() => setMenu(false)}

@@ -23,7 +23,7 @@ const App: React.FC = () => {
     <div className={style.app} ref={wrapper}>
       <BackgroundContext.Provider
         value={{
-          wrapper: wrapper,
+          wrapper: wrapper.current,
           changeBackground: changeBackground,
         }}
       >
