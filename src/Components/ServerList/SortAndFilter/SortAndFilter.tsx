@@ -1,23 +1,39 @@
-import React from "react";
 import "./SortAndFilter.scss";
 
-export default function SortAndFilter({ onSort, onFilter }) {
-  const sortRate = (a, b) => {
+interface Props {
+  onSort: (x: (a: Server, b: Server) => number) => void;
+  onFilter: (x: string) => void;
+}
+
+
+interface Server {
+  id: number;
+  img: string;
+  name: string;
+  rating: number;
+  type: string;
+  date: string;
+  status: string;
+  describe: string;
+}
+
+export default function SortAndFilter({ onSort, onFilter }: Props) {
+  const sortRate = (a: Server, b : Server) => {
     return a.rating - b.rating;
   };
 
-  const addClass = (e) => {
-    let element = e.target;
+  const addClass = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let element: HTMLButtonElement = e.currentTarget;
     element.classList.toggle("button--activeBtn");
     return;
   };
 
-  const sortDate = (a, b) => {
-    let aArray = a.date.split(".");
-    let bArray = b.date.split(".");
-    aArray = new Date(aArray[2], aArray[1] - 1, aArray[0]);
-    bArray = new Date(bArray[2], bArray[1] - 1, bArray[0]);
-    return aArray - bArray;
+  const sortDate = (a: Server, b: Server) => {
+    let aArray: string[] = a.date.split(".");
+    let bArray: string[] = b.date.split(".");
+    let dateArrayA: Date = new Date(parseInt(aArray[2]), parseInt(aArray[1]) - 1, parseInt(aArray[0]));
+    let dateArrayB: Date = new Date(parseInt(bArray[2]), parseInt(bArray[1]) - 1, parseInt(bArray[0]));
+    return dateArrayA.getTime() - dateArrayB.getTime();
   };
 
   return (
@@ -26,7 +42,7 @@ export default function SortAndFilter({ onSort, onFilter }) {
       <p className="sortAndFilter__title">Sortuj:</p>
         <button
           className="button button--sortAndFilter"
-          onClick={(e) => {
+          onClick={() => {
             onSort(sortRate);
           }}
         >
@@ -34,7 +50,7 @@ export default function SortAndFilter({ onSort, onFilter }) {
         </button>
         <button
           className="button button--sortAndFilter"
-          onClick={(e) => {
+          onClick={() => {
             onSort(sortDate);
           }}
         >

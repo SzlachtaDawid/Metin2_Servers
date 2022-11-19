@@ -20,7 +20,7 @@ interface Server {
   describe: string;
 }
 
-const serversList = [
+const serversList: Server[] = [
   {
     id: 1,
     img: nerwia2,
@@ -59,7 +59,7 @@ const serversList = [
 
 export default function ServerList() {
   const [servers, setServers] = useState<Server[] | null >(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [reverseSort, setReverseSort] = useState(true);
   const [filterParams, setFilterParams] = useState([
     {
@@ -101,7 +101,7 @@ export default function ServerList() {
 
   // SORTOWANIE
 
-  const sortServer = (typeSort) => {
+  const sortServer = (typeSort: (a: Server, b: Server) => number) => {
     if(servers) {
       const actualServers = servers.sort(typeSort);
     if (reverseSort) {
@@ -116,12 +116,14 @@ export default function ServerList() {
   // FILTROWANIE
 
   const filterServer = () => {
-    let fltredServers = [];
-    let servers = null;
+    let fltredServers: Server[] = [];
+    let servers: Server[] = [];
     filterParams.forEach((value) => {
       if (value.active) {
         servers = serversList.filter((x) => x.type.includes(value.type));
-        fltredServers.push(...servers);
+        if(servers){
+          fltredServers.push(...servers);
+        }
       }
     });
     if(fltredServers.length === 0){
@@ -153,7 +155,7 @@ export default function ServerList() {
         </div>
       );
     } else {
-      return servers.map((server) => <Serwer key={server.id} {...server} />);
+      return servers && servers.map((server) => <Serwer key={server.id} {...server} />);
     }
   }
 
@@ -170,12 +172,12 @@ export default function ServerList() {
       <div className="serverList__container">
         <h1 className="serverList__title">Lista serwerów</h1>
         <Search
-          onSearch={(server) => searchHandler(server)}
+          onSearch={(server: string) => searchHandler(server)}
           placeholder="Nazwa Serwera"
         />
         <SortAndFilter onSort={sortServer} onFilter={filterHandler} />
       </div>
-      <div className="serverList__servers">{load(loading)}</div>
+      <div className="serverList__servers">{load()}</div>
     </div>
   );
 }
