@@ -10,7 +10,16 @@ import nch from "../../assets/img/nch.jpg";
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 
-const channelsList = [
+interface Channels {
+  id: Number;
+  img: String;
+  name: String;
+  subs: Number;
+  clips: Number;
+  views: Number;
+}
+
+const channelsList: Channels[] = [
   {
     id: 1,
     img: noperfect,
@@ -55,24 +64,26 @@ const channelsList = [
 ];
 
 function Yt() {
-  const [channels, setChannels] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [channels, setChannels] = useState<Channels[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [reverseSort, setReverseSort] = useState(true);
   const background = useContext(BackgroundContext);
 
-  const searchHandler = (text) => {
-    const servers = [...channelsList].filter((x) =>
+  const searchHandler = (text: string) => {
+    const channels = [...channelsList].filter((x) =>
       x.name.toLowerCase().includes(text.toLowerCase())
     );
-    setChannels(servers);
+    setChannels(channels);
   };
 
-  const sortChannels = (typeSort) => {
-    const actualServers = [...channels].sort(typeSort);
-    if (reverseSort) {
-      setChannels(actualServers.reverse());
-    } else {
-      setChannels(actualServers);
+  const sortChannels = (typeSort: (a: Channels, b: Channels) => number) => {
+    if(channels){
+      const actualServers = [...channels].sort(typeSort);
+      if (reverseSort) {
+        setChannels(actualServers.reverse());
+      } else {
+        setChannels(actualServers);
+      }
     }
     setReverseSort(!reverseSort);
   };
@@ -94,13 +105,12 @@ function Yt() {
             wrapperStyle={{
               margin: "30px auto",
             }}
-            wrapperClassName=""
             visible={true}
           />
         </div>
       );
     } else {
-      return channels.map((channel) => (
+      return channels && channels.map((channel) => (
         <YtChanel key={channel.id} {...channel} />
       ));
     }
@@ -119,12 +129,12 @@ function Yt() {
       <div className="ytList__container">
         <h1 className="ytList__title"> YouTube</h1>
         <Search
-          onSearch={(channels) => searchHandler(channels)}
+          onSearch={(channels: String) => searchHandler(channels as string)}
           placeholder="Nazwa Kanału YT"
         />
         <Sort onSort={sortChannels}/>
       </div>
-      <div className="ytList__channels">{load(loading)}</div>
+      <div className="ytList__channels">{load()}</div>
     </div>
   );
 }

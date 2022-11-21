@@ -5,6 +5,7 @@ interface Props {
   onFilter: (x: string) => void;
 }
 
+// globalnie wyniesc do typów
 
 interface Server {
   id: number;
@@ -27,6 +28,8 @@ export default function SortAndFilter({ onSort, onFilter }: Props) {
     element.classList.toggle("button--activeBtn");
     return;
   };
+
+  // przerobić tą funckje
 
   const sortDate = (a: Server, b: Server) => {
     let aArray: string[] = a.date.split(".");

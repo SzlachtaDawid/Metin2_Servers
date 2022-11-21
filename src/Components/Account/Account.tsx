@@ -1,4 +1,3 @@
-import React from "react";
 import "./Account.scss";
 import warrior from "../../assets/img/Warrior_Male.png";
 import Login from "./Login/Login";
@@ -7,10 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-function Account({ panel }) {
+interface Props {
+  panel: String
+}
+
+function Account({ panel }: Props) {
   const goBack = useNavigate();
-  function checkPanel() {
-    let renderComponent;
+  function checkPanel(): JSX.Element {
+    let renderComponent: JSX.Element;
     switch (panel) {
       case "login":
         renderComponent = <Login />;
@@ -19,6 +22,7 @@ function Account({ panel }) {
         renderComponent = <Register />;
         break;
       default:
+        renderComponent = <Login />;
         break;
     }
     return renderComponent;

@@ -1,13 +1,12 @@
-import React from "react";
-import "./Login.scss"
+import "./Register.scss"
 
 function Login() {
   return (
-    <div className="login">
-      <p className="login__title">Podaj login oraz hasło</p>
+    <div className="register">
+      <p className="register__title">Stwórz konto</p>
       <input className="inputs" type="text" placeholder="Login" />
       <input className="inputs" type="password" placeholder="Hasło" />
-      <button className="button button--account">Zaloguj</button>
+      <button className="button button--account">Zarejestruj</button>
     </div>
   );
 }

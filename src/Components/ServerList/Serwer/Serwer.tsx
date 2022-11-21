@@ -1,7 +1,18 @@
 import React from "react";
 import "./Serwer.scss";
 
-export default function Serwer(props) {
+interface Server {
+  id: number;
+  img: string;
+  name: string;
+  rating: number;
+  type: string;
+  date: string;
+  status: string;
+  describe: string;
+}
+
+export default function Serwer(props: Server) {
   return (
     <>
       <div className="server">

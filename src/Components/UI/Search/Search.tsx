@@ -1,12 +1,17 @@
 import { useRef, useState } from "react";
 import "./Search.scss";
 
-function Search(props) {
-  const [term, setTerm] = useState("");
-  const inputRef = useRef(null);
+interface Props {
+  onSearch: (x: String) => void;
+  placeholder: String;
+}
+
+function Search({onSearch, placeholder}: Props) {
+  const [term, setTerm] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const searchSerwer = () => {
-    props.onSearch(term);
+    onSearch(term);
   };
 
   return (
@@ -14,7 +19,7 @@ function Search(props) {
       <input
         className="inputs inputs--search"
         type="text"
-        placeholder={props.placeholder}
+        placeholder={placeholder as string}
         ref={inputRef}
         value={term}
         onKeyDown={(e) => {

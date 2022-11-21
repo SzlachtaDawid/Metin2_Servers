@@ -172,8 +172,8 @@ export default function ServerList() {
       <div className="serverList__container">
         <h1 className="serverList__title">Lista serwerów</h1>
         <Search
-          onSearch={(server: string) => searchHandler(server)}
-          placeholder="Nazwa Serwera"
+          onSearch={(server: String) => searchHandler(server as string)}
+          placeholder ="Nazwa Serwera"
         />
         <SortAndFilter onSort={sortServer} onFilter={filterHandler} />
       </div>
