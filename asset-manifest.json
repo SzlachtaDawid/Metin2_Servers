@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/Metin2_Servers/static/css/main.5c482f02.css",
-    "main.js": "/Metin2_Servers/static/js/main.163b70de.js",
+    "main.css": "/Metin2_Servers/static/css/main.565414a0.css",
+    "main.js": "/Metin2_Servers/static/js/main.1fbdcf10.js",
     "static/js/787.c3b6b985.chunk.js": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js",
-    "static/media/Metin_2_Dragon.jpg": "/Metin2_Servers/static/media/Metin_2_Dragon.541efba10fb0eb99210d.jpg",
-    "static/media/Metin_2_Giant.jpg": "/Metin2_Servers/static/media/Metin_2_Giant.df314fe5fae60351c023.jpg",
-    "static/media/Metin_2_Sura.jpg": "/Metin2_Servers/static/media/Metin_2_Sura.5b582140871ee0bcb669.jpg",
-    "static/media/Metin_2_Assassin.jpg": "/Metin2_Servers/static/media/Metin_2_Assassin.fc7dd8189d3c4915b506.jpg",
+    "static/media/Metin_2_Dragon.jpg": "/Metin2_Servers/static/media/Metin_2_Dragon.a96e42719ef6281724b4.jpg",
+    "static/media/Metin_2_Giant.jpg": "/Metin2_Servers/static/media/Metin_2_Giant.3295154ceb91ff5784e9.jpg",
+    "static/media/Metin_2_Assassin.jpg": "/Metin2_Servers/static/media/Metin_2_Assassin.3719ae832e97d081e76d.jpg",
+    "static/media/Metin_2_Sura.jpg": "/Metin2_Servers/static/media/Metin_2_Sura.0be9cce31063fcf9b752.jpg",
     "static/media/nerwia2.png": "/Metin2_Servers/static/media/nerwia2.949e860b0f081e37f4e8.png",
     "static/media/Warrior_Male.png": "/Metin2_Servers/static/media/Warrior_Male.3f31b6ec963248aa598f.png",
     "static/media/balmora.png": "/Metin2_Servers/static/media/balmora.741b56b51f8756d2e8ca.png",
@@ -14,12 +14,12 @@
     "static/media/uzurpator.jpg": "/Metin2_Servers/static/media/uzurpator.4e385c3ae15768064117.jpg",
     "static/media/nch.jpg": "/Metin2_Servers/static/media/nch.2149125d8f7de8074b34.jpg",
     "index.html": "/Metin2_Servers/index.html",
-    "main.5c482f02.css.map": "/Metin2_Servers/static/css/main.5c482f02.css.map",
-    "main.163b70de.js.map": "/Metin2_Servers/static/js/main.163b70de.js.map",
+    "main.565414a0.css.map": "/Metin2_Servers/static/css/main.565414a0.css.map",
+    "main.1fbdcf10.js.map": "/Metin2_Servers/static/js/main.1fbdcf10.js.map",
     "787.c3b6b985.chunk.js.map": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c482f02.css",
-    "static/js/main.163b70de.js"
+    "static/css/main.565414a0.css",
+    "static/js/main.1fbdcf10.js"
   ]
 }
