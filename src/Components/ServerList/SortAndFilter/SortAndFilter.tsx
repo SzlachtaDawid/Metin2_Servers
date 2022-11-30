@@ -1,21 +1,9 @@
+import { Server } from "../../../Types/server";
 import "./SortAndFilter.scss";
 
 interface Props {
   onSort: (x: (a: Server, b: Server) => number) => void;
   onFilter: (x: string) => void;
-}
-
-// globalnie wyniesc do typów
-
-interface Server {
-  id: number;
-  img: string;
-  name: string;
-  rating: number;
-  type: string;
-  date: string;
-  status: string;
-  describe: string;
 }
 
 export default function SortAndFilter({ onSort, onFilter }: Props) {

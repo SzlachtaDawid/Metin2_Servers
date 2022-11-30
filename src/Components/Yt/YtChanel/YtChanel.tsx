@@ -1,7 +1,7 @@
-import React from "react";
+import { Channel } from "../../../Types/channel";
 import "./YtChanel.scss";
 
-function YtChanel(props) {
+function YtChanel(props : Channel) {
   return (
     <div className="ytChannel">
       <p className="ytChannel__name">{props.name}</p>

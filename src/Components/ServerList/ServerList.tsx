@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Search from "../UI/Search/Search";
 import "./ServerList.scss";
 import Serwer from "./Serwer/Serwer";
@@ -8,17 +8,8 @@ import nerwia2 from "../../assets/img/nerwia2.png";
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 import SortAndFilter from "./SortAndFilter/SortAndFilter";
+import { Server } from "../../Types/server";
 
-interface Server {
-  id: number;
-  img: string;
-  name: string;
-  rating: number;
-  type: string;
-  date: string;
-  status: string;
-  describe: string;
-}
 
 const serversList: Server[] = [
   {

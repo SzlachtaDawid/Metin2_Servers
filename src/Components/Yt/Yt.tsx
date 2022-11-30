@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import  { useEffect, useState, useContext } from "react";
 import Search from "../UI/Search/Search";
 import "./Yt.scss";
 import YtChanel from "./YtChanel/YtChanel";
@@ -9,17 +9,9 @@ import uzurpator from "../../assets/img/uzurpator.jpg";
 import nch from "../../assets/img/nch.jpg";
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
+import { Channel } from "../../Types/channel";
 
-interface Channels {
-  id: Number;
-  img: String;
-  name: String;
-  subs: Number;
-  clips: Number;
-  views: Number;
-}
-
-const channelsList: Channels[] = [
+const channelsList: Channel[] = [
   {
     id: 1,
     img: noperfect,
@@ -64,7 +56,7 @@ const channelsList: Channels[] = [
 ];
 
 function Yt() {
-  const [channels, setChannels] = useState<Channels[] | null>(null);
+  const [channels, setChannels] = useState<Channel[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [reverseSort, setReverseSort] = useState(true);
   const background = useContext(BackgroundContext);
@@ -76,7 +68,7 @@ function Yt() {
     setChannels(channels);
   };
 
-  const sortChannels = (typeSort: (a: Channels, b: Channels) => number) => {
+  const sortChannels = (typeSort: (a: Channel, b: Channel) => number) => {
     if(channels){
       const actualServers = [...channels].sort(typeSort);
       if (reverseSort) {

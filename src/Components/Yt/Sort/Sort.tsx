@@ -1,22 +1,18 @@
+import { Channel } from "../../../Types/channel";
 import "./Sort.scss";
 
-interface Channels {
-  id: Number;
-  img: String;
-  name: String;
-  subs: Number;
-  clips: Number;
-  views: Number;
+interface Props {
+  onSort: (x: (a: Channel, b: Channel) => number) => void;
 }
 
-export default function SortAndFilter({ onSort }: ) {
-  const sortSubs = (a: Channels, b: Channels) => {
+export default function SortAndFilter({ onSort }: Props) {
+  const sortSubs = (a: Channel, b: Channel): number => {
     return a.subs - b.subs;
   };
-  const sortClips = (a: Channels, b: Channels) => {
+  const sortClips = (a: Channel, b: Channel): number => {
     return a.clips - b.clips;
   };
-  const sortViews = (a: Channels, b: Channels) => {
+  const sortViews = (a: Channel, b: Channel): number => {
     return a.views - b.views;
   };
   
