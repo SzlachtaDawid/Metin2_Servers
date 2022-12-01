@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Metin2_Servers/static/css/main.565414a0.css",
-    "main.js": "/Metin2_Servers/static/js/main.1fbdcf10.js",
+    "main.css": "/Metin2_Servers/static/css/main.e2c22766.css",
+    "main.js": "/Metin2_Servers/static/js/main.702aa5c5.js",
     "static/js/787.c3b6b985.chunk.js": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js",
     "static/media/Metin_2_Dragon.jpg": "/Metin2_Servers/static/media/Metin_2_Dragon.a96e42719ef6281724b4.jpg",
     "static/media/Metin_2_Giant.jpg": "/Metin2_Servers/static/media/Metin_2_Giant.3295154ceb91ff5784e9.jpg",
@@ -14,12 +14,12 @@
     "static/media/uzurpator.jpg": "/Metin2_Servers/static/media/uzurpator.4e385c3ae15768064117.jpg",
     "static/media/nch.jpg": "/Metin2_Servers/static/media/nch.2149125d8f7de8074b34.jpg",
     "index.html": "/Metin2_Servers/index.html",
-    "main.565414a0.css.map": "/Metin2_Servers/static/css/main.565414a0.css.map",
-    "main.1fbdcf10.js.map": "/Metin2_Servers/static/js/main.1fbdcf10.js.map",
+    "main.e2c22766.css.map": "/Metin2_Servers/static/css/main.e2c22766.css.map",
+    "main.702aa5c5.js.map": "/Metin2_Servers/static/js/main.702aa5c5.js.map",
     "787.c3b6b985.chunk.js.map": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.565414a0.css",
-    "static/js/main.1fbdcf10.js"
+    "static/css/main.e2c22766.css",
+    "static/js/main.702aa5c5.js"
   ]
 }
