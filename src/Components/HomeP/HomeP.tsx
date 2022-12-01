@@ -7,9 +7,7 @@ const HomeP = () => {
   const background = useContext(BackgroundContext);
 
   useEffect(() => {
-    return () => {
-      background.changeBackground("App homeP");
-    }
+    background.changeBackground("App homeP");
   }, [background]);
 
   return (

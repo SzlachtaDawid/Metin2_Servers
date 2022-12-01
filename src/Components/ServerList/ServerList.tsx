@@ -151,13 +151,11 @@ export default function ServerList() {
   }
 
   useEffect(() => {
+    background.changeBackground("App serverListP");
     setTimeout(() => {
       setServers(serversList);
       setLoading(false);
     }, 1500);
-    return () => {
-      background.changeBackground("App serverListP");
-    }
   }, [background]);
 
   return (

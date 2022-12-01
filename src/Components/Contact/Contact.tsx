@@ -6,9 +6,7 @@ function Contact() {
   const background = useContext(BackgroundContext);
 
   useEffect(() => {
-    return () => {
-      background.changeBackground("App contactP");
-    }
+    background.changeBackground("App contactP");
   }, [background]);
 
   return (
