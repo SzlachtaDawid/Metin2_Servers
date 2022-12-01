@@ -109,11 +109,13 @@ function Yt() {
   }
 
   useEffect(() => {
-    background.changeBackground("App YtP");
     setTimeout(() => {
       setChannels(channelsList);
       setLoading(false);
     }, 1500);
+    return () => {
+      background.changeBackground("App YtP");
+    }
   }, [background]);
 
   return (
