@@ -1,10 +1,11 @@
+@use "../../Style/variables" as *;
 @use "../../Style/mixins" as *;
 
 .home {
   position: absolute;
   top: 25%;
   left: 10%;
-  color: #fff;
+  color: $primary-color;
   width: 100%;
   max-width: 450px;
   padding-bottom: 25px;
@@ -12,7 +13,7 @@
   &__title {
     font-family: "Cinzel Decorative", cursive;
     font-size: 10rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.66);
+    border-bottom: $border;
     margin-bottom: 20px;
   }
 
@@ -29,7 +30,7 @@
 
   &__btnContainer {
     padding: 20px 0px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.66);
+    border-bottom: $border;
     @include setFlex();
   }
 }

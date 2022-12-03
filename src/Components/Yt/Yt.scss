@@ -1,4 +1,5 @@
 @use "../../Style/variables" as *;
+@use "../../Style/mixins" as *;
 
 .ytList {
   min-height: 100vh;
@@ -8,12 +9,11 @@
     max-width: 1200px;
     height: 100%;
     margin: 30px auto 0px auto;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.65);
-    color: $primary-color;
     padding: 20px 20px;
     animation: widthAnimation 0.4s linear 0.2s both;
     overflow: hidden;
+    @include setBackground();
+    color: $primary-color;
   }
 
   &__title {
@@ -26,11 +26,9 @@
   &__channels {
     max-width: 1200px;
     margin: 25px auto 0px auto;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.65);
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    @include setBackground();
+    @include setFlex($justify-content: center);
   }
 }
 

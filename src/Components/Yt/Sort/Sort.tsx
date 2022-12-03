@@ -22,7 +22,7 @@ export default function SortAndFilter({ onSort }: Props) {
         <p className="sortAndFilter__title">Sortuj:</p>
         <button
           className="button button--sortAndFilter"
-          onClick={(e) => {
+          onClick={() => {
             onSort(sortSubs);
           }}
         >
@@ -30,7 +30,7 @@ export default function SortAndFilter({ onSort }: Props) {
         </button>
         <button
           className="button button--sortAndFilter"
-          onClick={(e) => {
+          onClick={() => {
             onSort(sortClips);
           }}
         >
@@ -38,7 +38,7 @@ export default function SortAndFilter({ onSort }: Props) {
         </button>
         <button
           className="button button--sortAndFilter"
-          onClick={(e) => {
+          onClick={() => {
             onSort(sortViews);
           }}
         >

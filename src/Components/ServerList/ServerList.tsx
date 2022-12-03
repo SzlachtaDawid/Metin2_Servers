@@ -151,7 +151,7 @@ export default function ServerList() {
   }
 
   useEffect(() => {
-    background.changeBackground("App serverListP");
+    background.changeBackground("server");
     setTimeout(() => {
       setServers(serversList);
       setLoading(false);

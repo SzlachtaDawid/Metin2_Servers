@@ -10,11 +10,10 @@
     height: 100%;
     margin: 30px auto 25px auto;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.65);
-    color: $primary-color;
-    animation: widthAnimation 0.4s linear 0.2s both;
     overflow: hidden;
+    animation: widthAnimation 0.4s linear 0.2s both;
+    color: $primary-color;
+    @include setBackground();
   }
 
   &__title {
@@ -27,9 +26,8 @@
   &__servers {
     max-width: 1200px;
     margin: 0px auto 0px auto;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.65);
     overflow: hidden;
+    @include setBackground();
   }
 }
 

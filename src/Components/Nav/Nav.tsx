@@ -3,9 +3,11 @@ import "./Nav.scss";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../../hooks/useAuth";
 
 function Nav() {
   const [menu, setMenu] = useState<boolean>(false);
+  const [auth, setAuth] = useAuth();
 
   return (
     <div className={menu ? "nav nav--open" : "nav"}>
@@ -60,9 +62,13 @@ function Nav() {
         </NavLink>
       </div>
       <div className="nav__account">
-        <NavLink to={`/login`}>
-          <button className="button button--log">Zaloguj</button>
-        </NavLink>
+        {auth ? (
+          <button onClick={setAuth(false)} className="button button--log">Wyloguj</button>
+        ) : (
+          <NavLink to={`/login`}>
+            <button onClick={setAuth(true} className="button button--log">Zaloguj</button>
+          </NavLink>
+        )}
         <NavLink to={`/register`}>
           <button className="button button--register">Rejestracja</button>
         </NavLink>

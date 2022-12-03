@@ -9,9 +9,7 @@
   top: 50%;
   transform: translateY(-50%);
   right: 11%;
-  background-color: rgba(0, 0, 0, 0.65);
-  box-shadow: 0px 0px 25px 35px rgba(0, 0, 0, 0.65);
-  border: none;
+  @include setBackground($box-shadow: 0px 0px 25px 35px rgba(0, 0, 0, 0.65));
   animation: opacityAnimation 0.4s linear 0.1s both;
   border: 1px solid rgba(0, 0, 0, 0);
 
