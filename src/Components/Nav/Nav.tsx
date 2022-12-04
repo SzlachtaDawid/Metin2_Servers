@@ -63,10 +63,10 @@ function Nav() {
       </div>
       <div className="nav__account">
         {auth ? (
-          <button onClick={setAuth(false)} className="button button--log">Wyloguj</button>
+          <button onClick={() => setAuth(false)} className="button button--log">Wyloguj</button>
         ) : (
           <NavLink to={`/login`}>
-            <button onClick={setAuth(true)} className="button button--log">Zaloguj</button>
+            <button onClick={() => setAuth(true)} className="button button--log">Zaloguj</button>
           </NavLink>
         )}
         <NavLink to={`/register`}>

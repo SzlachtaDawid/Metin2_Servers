@@ -1,7 +1,13 @@
 import { Server } from "../../../Types/server";
 import "./Serwer.scss";
+import useAuth from "../../../hooks/useAuth";
+import { useState } from "react";
+import { RatingPanel } from "./RatingPanel/RatingPanel";
 
 export default function Serwer(props: Server) {
+  const [rating, setRating] = useState<boolean>(false)
+  const [auth, setAuth] = useAuth();
+
   return (
     <>
       <div className="server">
@@ -19,9 +25,11 @@ export default function Serwer(props: Server) {
           <p className="server__desc">
             {props.describe}
           </p>
+          {rating ? <RatingPanel serverId={props.id}/> : <></>}
           <div className="server__btns"> 
-            <button className="button button--server">Oceń</button>
+            <button onClick={() => setRating(!rating)} className="button button--server">Oceń</button>
             <button className="button button--server">Prezentacja</button>
+            <button className="button button--server">Zdobądź Vipa</button>
           </div>
         </div>
       </div>
