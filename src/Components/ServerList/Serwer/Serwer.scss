@@ -44,10 +44,11 @@
     font-style: italic;
   }
   &__btns {
-    margin: 30px auto 10px auto;
+    margin: 20px auto 10px auto;
     width: 100%;
     max-width: 500px;
     @include setFlex();
+    flex-wrap: wrap;
   }
 }
 
