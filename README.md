@@ -6,6 +6,5 @@ Ocena - każda zalogowana osoba może oceniać serwer w skali od 1 do 5 <br>
 Prezentacja - w szybki sposób przeniesiemy Cię na prezentacje serwera <br>
 Vip - dzięki nam uzyskasz Vipa na 7 dni <br>
 Oprócz tego planuję zgromadzić wszystkich twórców których content na serwisie YT opiera się na metin2.  <br>
-Możesz się ze mną skontaktować w celu dodania twojego serwera lub kanału YT na listę. <br>
 
 Aktualnie projekt posiada Front nad którym cały czas pracuje oraz refaktoryzuję aktualny kod. W przyszłości chcę dopisać backend i udostępnić serwis publicznie. 
