@@ -3,9 +3,12 @@ import "./Serwer.scss";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 import { RatingPanel } from "./RatingPanel/RatingPanel";
+import AuthAlert from "../../UI/AuthAlert/AuthAlert";
+import VipPanel from "./VipPanel/VipPanel";
 
 export default function Serwer(props: Server) {
-  const [rating, setRating] = useState<boolean>(false)
+  const [ratingComponent, setRatingComponent] = useState<boolean>(false)
+  const [vipComponent, setVipComponent] = useState<boolean>(false)
   const [auth, setAuth] = useAuth();
 
   return (
@@ -25,11 +28,14 @@ export default function Serwer(props: Server) {
           <p className="server__desc">
             {props.describe}
           </p>
-          {rating ? <RatingPanel serverId={props.id}/> : <></>}
+          { ratingComponent ? (auth ? <RatingPanel serverId={props.id}/> : <AuthAlert/>) : <></>}
+          { vipComponent ? (auth ? <VipPanel reflink={props.reflink}/> : <AuthAlert/>) : <></>}
           <div className="server__btns"> 
-            <button onClick={() => setRating(!rating)} className="button button--server">Oceń</button>
-            <button className="button button--server">Prezentacja</button>
-            <button className="button button--server">Zdobądź Vipa</button>
+            <button onClick={() => setRatingComponent(!ratingComponent)} className="button button--server">Oceń</button>
+            <a href={props.presentation} target="_blank" rel="noreferrer">
+               <button className="button button--server">Prezentacja</button>
+            </a>
+            <button onClick={() => setVipComponent(!vipComponent)} className="button button--server">Zdobądź Vipa</button>
           </div>
         </div>
       </div>

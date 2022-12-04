@@ -7,4 +7,6 @@ export interface Server {
     date: string;
     status: string;
     describe: string;
+    presentation: string;
+    reflink: string;
   }

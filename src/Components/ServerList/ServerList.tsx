@@ -22,6 +22,8 @@ const serversList: Server[] = [
     status: "ON",
     describe:
       "Jesli szukasz klasycznej rozgrywki bez miliona udziwnień i systemów to ten serwer jest właśnie dla Ciebie! Udoskonalona klasyka ze świetną reklamą i zespołem sprawi, że odszukasz troszkę klimatu dawnego metina! Dbamy o atmosferę na serwerze, więc przestrzegaj regulaminu!",
+    presentation: 'https://forum.nerwia2.pl/index.php?/topic/27-prezentacja-nerwia2/',
+    reflink: 'Nerwia2Mt2Servers',
   },
 
   {
@@ -34,6 +36,8 @@ const serversList: Server[] = [
     status: "ON",
     describe:
       " Włożyliśmy w ten serwer masę serducha i bardzo dużo pracy. Dlatego mamy szczerą nadzieję, że mógł cieszyć się  rozgrywką na najwyższym poziomie. Każdy element gry został starannie przemyślany i zaprojektowany tak, aby gracze mogli czerpać maksimum przyjemności z rozgrywki. Mamy już  ponad 10 lat doświadczenia, co gwarantuje Wam pewny i stabilny projekt, który może być z Wami przez lata! Chcemy, aby odkrywanie jego tajemnic sprawiło Wam masę przyjemności! ",
+    presentation: 'https://forum.balmora.pl/topic/146608-prezentacja-serwera/',
+    reflink: 'BalmoraMt2Servers',
   },
   {
     id: 3,
@@ -45,6 +49,8 @@ const serversList: Server[] = [
     status: "OFF",
     describe:
       "Serwis Tamidia.pl wystartował punktualnie o godz. 17:30, dnia 23 września 2022 r. Już po 4, prawie 5 dniach pojawił się pierwszy maksymalny poziom, co wprawia nas w osłupienie. Życzymy mu jak i reszcie graczy dalszych sukcesów na Tamidia.pl",
+    presentation: 'https://forum.tamidia.pl/index.php?/topic/664-prezentacja-gry-tamidiapl-2022/',
+    reflink: 'TamidiaMt2Servers',
   },
 ];
 
