@@ -66,7 +66,7 @@ function Nav() {
           <button onClick={() => setAuth(false)} className="button button--log">Wyloguj</button>
         ) : (
           <NavLink to={`/login`}>
-            <button onClick={() => setAuth(true)} className="button button--log">Zaloguj</button>
+            <button className="button button--log">Zaloguj</button>
           </NavLink>
         )}
         <NavLink to={`/register`}>

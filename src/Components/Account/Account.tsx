@@ -12,6 +12,9 @@ interface Props {
 
 function Account({ panel }: Props) {
   const goBack = useNavigate();
+  const urlParams = new URLSearchParams(window.location.search);
+  const param = urlParams.get('reg')
+
   function checkPanel(): JSX.Element {
     let renderComponent: JSX.Element;
     switch (panel) {
@@ -39,7 +42,7 @@ function Account({ panel }: Props) {
         <FontAwesomeIcon
           icon={faCircleXmark}
           className="button button--close"
-          onClick={() => goBack(-1)}
+          onClick={() => param === 'true' ? goBack('/Metin2_Servers') : goBack(-1) }
         />
       </div>
     </>
