@@ -5,6 +5,7 @@ import useStateStorage from "../../../hooks/useStateStorage";
 
 function Login() {
   // dodać walidację + firabase
+  const [error, setError] = useState<boolean>(false);
   const [account, setAccount] = useState<boolean>(false);
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -12,7 +13,7 @@ function Login() {
 
   const submit = (e: any) => {
     e.preventDefault();
-    if (e.target.reportValidity()) {
+    if ((login && login.length < 25) && (password && password.length < 25)) {
       if (state === "") {
         let dataArray = [];
         let data = { login: login, password: password };
@@ -23,6 +24,8 @@ function Login() {
         setValue(state);
       }
       setAccount(true);
+    } else {
+      setError(true)
     }
   };
   return (
@@ -44,7 +47,6 @@ function Login() {
             type="text"
             placeholder="Login"
             maxLength={30}
-            required
           />
           <input
             onChange={(e) => setPassword(e.target.value)}
@@ -52,8 +54,8 @@ function Login() {
             type="text"
             placeholder="Hasło"
             maxLength={30}
-            required
           />
+          {error && <p className="error">Pola nie mogą być puste ani dłuższe nic 25 znaków.</p>}
           <button className="button button--account">Zarejestruj</button>
         </form>
       )}

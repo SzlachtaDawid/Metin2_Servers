@@ -21,6 +21,7 @@
     color: #c0c0c0;
     background-color: #4aac48ab;
     font-size: 1.4rem;
+    margin-left: 20px;
   }
 
   &--menu {
@@ -69,6 +70,13 @@
 
   &--server {
     margin-top: 10px;
+  }
+}
+@media all and (max-width: 1150px) {
+  .button {
+    &--register {
+      margin-left: 0px;
+    }
   }
 }
 

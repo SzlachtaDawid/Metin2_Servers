@@ -44,7 +44,6 @@ function Login() {
             type="text"
             placeholder="Login"
             maxLength={30}
-            required
           />
           <input
             onChange={(e) => setPassword(e.target.value)}
@@ -52,9 +51,8 @@ function Login() {
             type="text"
             placeholder="Hasło"
             maxLength={30}
-            required
           />
-          {error && <p className="login__error">Niepoprawne dane logowania.</p>}
+          {error && <p className="error">Niepoprawne dane logowania.</p>}
           <button className="button button--account">Zaloguj</button>
         </form>
       )}

@@ -64,16 +64,23 @@ function Nav() {
       <div className="nav__account">
         {auth ? (
           <NavLink to={`/Metin2_Servers`}>
-            <button onClick={() => setAuth(false)} className="button button--log">Wyloguj</button>
+            <button
+              onClick={() => setAuth(false)}
+              className="button button--log"
+            >
+              Wyloguj
+            </button>
           </NavLink>
         ) : (
           <NavLink to={`/login`}>
             <button className="button button--log">Zaloguj</button>
           </NavLink>
         )}
-        <NavLink to={`/register`}>
-          <button className="button button--register">Rejestracja</button>
-        </NavLink>
+        {!auth && (
+          <NavLink to={`/register`}>
+            <button className="button button--register">Rejestracja</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
