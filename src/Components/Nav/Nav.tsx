@@ -63,7 +63,9 @@ function Nav() {
       </div>
       <div className="nav__account">
         {auth ? (
-          <button onClick={() => setAuth(false)} className="button button--log">Wyloguj</button>
+          <NavLink to={`/Metin2_Servers`}>
+            <button onClick={() => setAuth(false)} className="button button--log">Wyloguj</button>
+          </NavLink>
         ) : (
           <NavLink to={`/login`}>
             <button className="button button--log">Zaloguj</button>

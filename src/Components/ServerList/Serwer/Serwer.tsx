@@ -9,8 +9,16 @@ import VipPanel from "./VipPanel/VipPanel";
 export default function Serwer(props: Server) {
   const [ratingComponent, setRatingComponent] = useState<boolean>(false)
   const [vipComponent, setVipComponent] = useState<boolean>(false)
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
 
+  const renderComponent = () => {
+    if (ratingComponent) {
+      return <RatingPanel serverId={props.id} />;
+    }
+    if (vipComponent) {
+      return <VipPanel reflink={props.reflink} />;
+    }
+  }; 
   return (
     <>
       <div className="server">
@@ -28,14 +36,15 @@ export default function Serwer(props: Server) {
           <p className="server__desc">
             {props.describe}
           </p>
-          { ratingComponent ? (auth ? <RatingPanel serverId={props.id}/> : <AuthAlert/>) : <></>}
-          { vipComponent ? (auth ? <VipPanel reflink={props.reflink}/> : <AuthAlert/>) : <></>}
+          <>
+            {auth ? renderComponent() : (ratingComponent || vipComponent) ? <AuthAlert/> : <></> }
+          </>
           <div className="server__btns"> 
-            <button onClick={() => setRatingComponent(!ratingComponent)} className="button button--server">Oceń</button>
+            <button onClick={() => {setRatingComponent(!ratingComponent); setVipComponent(false)}} className="button button--server">Oceń</button>
             <a href={props.presentation} target="_blank" rel="noreferrer">
                <button className="button button--server">Prezentacja</button>
             </a>
-            <button onClick={() => setVipComponent(!vipComponent)} className="button button--server">Zdobądź Vipa</button>
+            <button onClick={() => {setVipComponent(!vipComponent); setRatingComponent(false)}} className="button button--server">Zdobądź Vipa</button>
           </div>
         </div>
       </div>
