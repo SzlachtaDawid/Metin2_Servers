@@ -18,4 +18,8 @@
     font-size: 1.4rem;
     text-align: center;
   }
+
+  &__buttonContainer{
+    @include setFlex($justify-content: center);
+  }
 }

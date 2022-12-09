@@ -9,7 +9,7 @@ function Contact() {
     background.changeBackground("contact");
   }, [background]);
 
-  const submit = (e: any) => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

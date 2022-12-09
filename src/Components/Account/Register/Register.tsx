@@ -2,35 +2,62 @@ import "./Register.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useStateStorage from "../../../hooks/useStateStorage";
+import emailValidator from "../../../hooks/validEmail"
+import passwordValidator from "../../../hooks/validPassword"
+import LoadingBtn from "../../UI/LoadingBtn/LoadingBtn";
+
+interface LoginData {
+  email: string;
+  password: string;
+  created: boolean
+}
+
+interface Error {
+  message: string;
+  set: boolean;
+}
 
 function Login() {
-  // dodać walidację + firabase
-  const [error, setError] = useState<boolean>(false);
-  const [account, setAccount] = useState<boolean>(false);
-  const [login, setLogin] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<Error>({
+    message: '',
+    set: false,
+  });
+  const [loginData, setLoginData] = useState<LoginData>({
+    email: '',
+    password: '',
+    created: false
+  })
+  const [loading, setLoading] = useState(false)
   const [state, setValue] = useStateStorage("User", "");
+  const emailValidation = emailValidator();
+  const passwordValidation = passwordValidator();
 
-  const submit = (e: any) => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if ((login && login.length < 25) && (password && password.length < 25)) {
-      if (state === "") {
-        let dataArray = [];
-        let data = { login: login, password: password };
-        dataArray.push(data);
-        setValue(dataArray);
+    setLoading(true)
+    const emailValateInfo = emailValidation(loginData.email);
+    const passwordValateInfo = passwordValidation(loginData.password);
+    setTimeout(() => {
+      if(emailValateInfo === '' && passwordValateInfo === '') {
+        if (state === "") {
+          let dataArray = [];
+          let data = { email: loginData.email, password: loginData.password };
+          dataArray.push(data);
+          setValue(dataArray);
+        } else {
+          state.push({ email: loginData.email, password: loginData.password });
+          setValue(state);
+        }
+        setLoginData({...loginData, created: true})
       } else {
-        state.push({ login: login, password: password });
-        setValue(state);
+        setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
       }
-      setAccount(true);
-    } else {
-      setError(true)
-    }
+      setLoading(false)
+    }, 1000);
   };
   return (
     <>
-      {account ? (
+      {loginData.created ? (
         <div className="register">
           <p className="register__title">Konto zostało stworzone.</p>
           <p className="register__text">Przejdź to panelu logowania.</p>
@@ -39,24 +66,29 @@ function Login() {
           </Link>
         </div>
       ) : (
-        <form onSubmit={submit} className="register">
+        <form onSubmit={submit} className="register" noValidate>
           <p className="register__title">Stwórz konto</p>
           <input
-            onChange={(e) => setLogin(e.target.value)}
+            onChange={(e) => setLoginData({...loginData, email: e.target.value})}
             className="inputs"
-            type="text"
-            placeholder="Login"
+            type="email"
+            placeholder="Email"
             maxLength={30}
           />
           <input
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setLoginData({...loginData, password: e.target.value})}
             className="inputs inputs--password"
             type="text"
             placeholder="Hasło"
             maxLength={30}
-          />
-          {error && <p className="error">Pola nie mogą być puste ani dłuższe nic 25 znaków.</p>}
-          <button className="button button--account">Zarejestruj</button>
+          /> 
+          {error && <p className="error">{error.message}</p>}
+          <div className="register__buttonContainer">
+            <button className="button button--account">Zarejestruj</button>
+            {loading ? (
+              <LoadingBtn/> 
+            ) : null}
+          </div>
         </form>
       )}
     </>

@@ -19,4 +19,7 @@
     font-size: 1.6rem;
     margin-bottom: 10px;
   }
+  &__buttonContainer {
+    @include setFlex($justify-content: center);
+  }
 }

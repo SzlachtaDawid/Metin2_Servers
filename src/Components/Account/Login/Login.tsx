@@ -3,38 +3,49 @@ import { useNavigate } from "react-router-dom";
 import useStateStorage from "../../../hooks/useStateStorage";
 import useAuth from "../../../hooks/useAuth";
 import "./Login.scss";
+import LoadingBtn from "../../UI/LoadingBtn/LoadingBtn";
+
+interface User {
+  login: string;
+  password: string;
+}
 
 function Login() {
   // dodać walidację + firabase
   const [error, setError] = useState<boolean>(false);
   const [login, setLogin] = useState<string>("");
+  const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState<string>("");
   const [state, setValue] = useStateStorage("User", "");
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
 
-  const submit = (e: any) => {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (e.target.reportValidity()) {
-      let passy = state.some((x: any) => x.login === login && x.password === password)
-      if (passy) {
-        setAuth(true);
-      } else {
-        setError(true);
-      }
-    }
-  };
-
-  if(auth) {
+    e.stopPropagation();
+    setLoading(true)
     setTimeout(() => {
-      navigate('/Metin2_Servers')
-    }, 2000);
-  }
+      if (e.target) {
+        let user = state.some((x: User) => x.login === login && x.password === password)
+        if (user) {
+          setAuth(true);
+          setTimeout(() => {
+            navigate('/Metin2_Servers')
+          }, 1000);
+        } else {
+          setError(true);
+        }
+      }
+      setLoading(false)
+    }, 1000);
+  };
 
   return (
     <>
       {auth ? (
-        <p className="login__title">Zalogowano. Zaraz zostaniesz przeniesiony.</p>
+        <p className="login__title">
+          Zalogowano. Zaraz zostaniesz przeniesiony.
+        </p>
       ) : (
         <form onSubmit={submit} className="login">
           <p className="login__title">Podaj login oraz hasło</p>
@@ -42,7 +53,7 @@ function Login() {
             onChange={(e) => setLogin(e.target.value)}
             className="inputs"
             type="text"
-            placeholder="Login"
+            placeholder="email"
             maxLength={30}
           />
           <input
@@ -52,8 +63,13 @@ function Login() {
             placeholder="Hasło"
             maxLength={30}
           />
-          {error && <p className="error">Niepoprawne dane logowania.</p>}
-          <button className="button button--account">Zaloguj</button>
+          {error && <p className="login__error">Niepoprawne dane logowania.</p>}
+          <div className="login__buttonContainer">
+            <button className="button button--account">Zaloguj</button>
+            {loading ? (
+              <LoadingBtn/> 
+            ) : null}
+          </div>
         </form>
       )}
     </>
