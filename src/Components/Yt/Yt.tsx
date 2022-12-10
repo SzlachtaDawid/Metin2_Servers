@@ -11,6 +11,7 @@ import neesu from "../../assets/img/neesu.jpg"
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 import { Channel } from "../../Types/channel";
+import NoFind from "../UI/NoFind/NoFind";
 
 const channelsList: Channel[] = [
   {
@@ -103,9 +104,7 @@ function Yt() {
         </div>
       );
     } else {
-      return channels && channels.map((channel) => (
-        <YtChanel key={channel.id} {...channel} />
-      ));
+      return channels?.length ? channels.map((channel) => (<YtChanel key={channel.id} {...channel} />)) : <NoFind/>;
     }
   }
 

@@ -9,6 +9,7 @@ import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 import SortAndFilter from "./SortAndFilter/SortAndFilter";
 import { Server } from "../../Types/server";
+import NoFind from "../UI/NoFind/NoFind";
 
 
 const serversList: Server[] = [
@@ -152,7 +153,7 @@ export default function ServerList() {
         </div>
       );
     } else {
-      return servers && servers.map((server) => <Serwer key={server.id} {...server} />);
+      return servers?.length ? servers.map((server) => <Serwer key={server.id} {...server} />) : <NoFind/>;
     }
   }
 

@@ -33,7 +33,7 @@ function Login() {
     password: '',
   })
   const [loading, setLoading] = useState(false)
-  const [state, setValue] = useStateStorage("User", "");
+  const [state] = useStateStorage("User", "");
   const [auth, setAuth] = useAuth();
   const emailValidation = emailValidator();
   const passwordValidation = passwordValidator();

@@ -1,0 +1,16 @@
+@use "../../../Style/mixins" as *;
+@use "../../../Style/variables" as *;
+
+.nofind {
+    margin: 20px 0px;
+    @include setFlex($justify-content: center, $flex-direction: column);
+    &__text {
+        color: $primary-color;
+        font-size: 2.0rem;
+    }
+
+    &__img {
+        margin-top: 20px;
+        max-width: 200px;
+    }
+}
