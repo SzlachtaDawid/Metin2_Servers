@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Metin2_Servers/static/css/main.5b721de7.css",
-    "main.js": "/Metin2_Servers/static/js/main.65ab8bb4.js",
+    "main.css": "/Metin2_Servers/static/css/main.61e6159c.css",
+    "main.js": "/Metin2_Servers/static/js/main.cdce05e6.js",
     "static/js/787.c3b6b985.chunk.js": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js",
     "static/media/Metin_2_Dragon.jpg": "/Metin2_Servers/static/media/Metin_2_Dragon.a96e42719ef6281724b4.jpg",
     "static/media/Metin_2_Giant.jpg": "/Metin2_Servers/static/media/Metin_2_Giant.3295154ceb91ff5784e9.jpg",
@@ -9,18 +9,19 @@
     "static/media/Metin_2_Sura.jpg": "/Metin2_Servers/static/media/Metin_2_Sura.0be9cce31063fcf9b752.jpg",
     "static/media/nerwia2.png": "/Metin2_Servers/static/media/nerwia2.949e860b0f081e37f4e8.png",
     "static/media/Warrior_Male.png": "/Metin2_Servers/static/media/Warrior_Male.3f31b6ec963248aa598f.png",
+    "static/media/ninjaAnime.png": "/Metin2_Servers/static/media/ninjaAnime.589f95000ff70c123306.png",
     "static/media/balmora.png": "/Metin2_Servers/static/media/balmora.741b56b51f8756d2e8ca.png",
     "static/media/nismoGT.jpg": "/Metin2_Servers/static/media/nismoGT.7023a986f86a0045ba45.jpg",
     "static/media/uzurpator.jpg": "/Metin2_Servers/static/media/uzurpator.4e385c3ae15768064117.jpg",
     "static/media/neesu.jpg": "/Metin2_Servers/static/media/neesu.fe6f73ab776568a8192a.jpg",
     "static/media/nch.jpg": "/Metin2_Servers/static/media/nch.2149125d8f7de8074b34.jpg",
     "index.html": "/Metin2_Servers/index.html",
-    "main.5b721de7.css.map": "/Metin2_Servers/static/css/main.5b721de7.css.map",
-    "main.65ab8bb4.js.map": "/Metin2_Servers/static/js/main.65ab8bb4.js.map",
+    "main.61e6159c.css.map": "/Metin2_Servers/static/css/main.61e6159c.css.map",
+    "main.cdce05e6.js.map": "/Metin2_Servers/static/js/main.cdce05e6.js.map",
     "787.c3b6b985.chunk.js.map": "/Metin2_Servers/static/js/787.c3b6b985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b721de7.css",
-    "static/js/main.65ab8bb4.js"
+    "static/css/main.61e6159c.css",
+    "static/js/main.cdce05e6.js"
   ]
 }
