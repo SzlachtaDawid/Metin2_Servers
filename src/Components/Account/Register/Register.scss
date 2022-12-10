@@ -20,6 +20,9 @@
     margin-bottom: 10px;
   }
   &__buttonContainer {
-    @include setFlex($justify-content: center);
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    margin:  0 auto;
   }
 }

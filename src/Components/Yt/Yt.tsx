@@ -7,6 +7,7 @@ import noperfect from "../../assets/img/noperfect.jpg";
 import nismoGT from "../../assets/img/nismoGT.jpg";
 import uzurpator from "../../assets/img/uzurpator.jpg";
 import nch from "../../assets/img/nch.jpg";
+import neesu from "../../assets/img/neesu.jpg"
 import { Triangle } from "react-loader-spinner";
 import BackgroundContext from "../../context/backgroundContext";
 import { Channel } from "../../Types/channel";
@@ -47,11 +48,11 @@ const channelsList: Channel[] = [
   },
   {
     id: 5,
-    img: nismoGT,
-    name: "NismoGT",
-    subs: 56342,
-    clips: 11,
-    views: 1932543,
+    img: neesu,
+    name: "neesu",
+    subs: 3120,
+    clips: 20,
+    views: 133300,
   },
 ];
 

@@ -53,7 +53,7 @@ function Login() {
         setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
       }
       setLoading(false)
-    }, 1000);
+    }, 750);
   };
   return (
     <>
@@ -82,7 +82,7 @@ function Login() {
             placeholder="Hasło"
             maxLength={30}
           /> 
-          {error && <p className="error">{error.message}</p>}
+          {error.set && <p className="error">{error.message}</p>}
           <div className="register__buttonContainer">
             <button className="button button--account">Zarejestruj</button>
             {loading ? (
