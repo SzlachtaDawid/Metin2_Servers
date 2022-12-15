@@ -1,4 +1,9 @@
 Live - https://szlachtadawid.github.io/Metin2_Servers/ <br>
+Testowe konto:<br>
+email: test1234@gmail.com <br>
+password: test1234 <br>
+
+Tworzenie konta oraz logowanie jest obsługiwane za pomocą Firebase. Tworzenie nowego konta aktualnie nie wymaga potwierdzenia email. <br>
 
 Strona Metin2Servers jest stworzona od gracza dla graczy metin2. <br>
 Dzięki niej w jednym miejscu będą zgromadzone wszystkie prywatne polskie serwery Mt2, w przyszłości również zagraniczne. Bardzo szybko uzyskasz wszelkie informacje na temat konkretnego serwera. <br>
