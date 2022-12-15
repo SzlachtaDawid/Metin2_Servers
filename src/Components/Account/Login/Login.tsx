@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useStateStorage from "../../../hooks/useStateStorage";
 import useAuth from "../../../hooks/useAuth";
 import "./Login.scss";
 import emailValidator from "../../../hooks/validEmail"
 import passwordValidator from "../../../hooks/validPassword"
 import LoadingBtn from "../../UI/LoadingBtn/LoadingBtn";
-
-interface User {
-  email: string;
-  password: string;
-}
+import axiosBasic from 'axios'
 
 interface LoginData {
   email: string;
@@ -33,34 +28,44 @@ function Login() {
     password: '',
   })
   const [loading, setLoading] = useState(false)
-  const [state] = useStateStorage("User", "");
   const [auth, setAuth] = useAuth();
   const emailValidation = emailValidator();
   const passwordValidation = passwordValidator();
   const navigate = useNavigate();
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setLoading(true)
+    setLoading(true);
+
     const emailValateInfo = emailValidation(loginData.email);
     const passwordValateInfo = passwordValidation(loginData.password);
-    setTimeout(() => {
-      if(emailValateInfo === '' && passwordValateInfo === '') {
-        let user = state.some((x: User) => x.email === loginData.email && x.password === loginData.password)
-        if (user) {
-          setAuth(true);
-          setTimeout(() => {
-            navigate('/Metin2_Servers')
-          }, 1000);
+    if (emailValateInfo === "" && passwordValateInfo === "") {
+      try {
+        const res = await axiosBasic.post("https://mt2-service.onrender.com/login", {
+          email: loginData.email,
+          password: loginData.password,
+          returnSecureToken: true,
+        });
+        if(res.data.success === false){
+          setError({...error, message: "Niepoprawne dane logowania", set: true});
         } else {
-          setError({...error,  message:'Niepoprawne dane logowania', set: true});
+        setAuth(true, {
+          email: res.data.email,
+          token: res.data.idToken,
+          userId: res.data.localId,
+        });
+        setTimeout(() => {
+          navigate("/Metin2_Servers");
+        }, 1000);
         }
-      } else {
-        setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
+      } catch (err) {
+        setError({ ...error, message: String(err), set: true });
       }
-      setLoading(false)
-    }, 750);
+    } else {
+      setError({...error, message: emailValateInfo + passwordValateInfo, set: true});
+    }
+    setLoading(false);
   };
 
   return (

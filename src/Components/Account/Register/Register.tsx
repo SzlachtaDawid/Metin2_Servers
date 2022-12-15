@@ -1,10 +1,10 @@
 import "./Register.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useStateStorage from "../../../hooks/useStateStorage";
 import emailValidator from "../../../hooks/validEmail"
 import passwordValidator from "../../../hooks/validPassword"
 import LoadingBtn from "../../UI/LoadingBtn/LoadingBtn";
+import axiosBasic from 'axios'
 
 interface LoginData {
   email: string;
@@ -28,32 +28,33 @@ function Login() {
     created: false
   })
   const [loading, setLoading] = useState(false)
-  const [state, setValue] = useStateStorage("User", "");
   const emailValidation = emailValidator();
   const passwordValidation = passwordValidator();
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true)
     const emailValateInfo = emailValidation(loginData.email);
     const passwordValateInfo = passwordValidation(loginData.password);
-    setTimeout(() => {
+    try {
       if(emailValateInfo === '' && passwordValateInfo === '') {
-        if (state === "") {
-          let dataArray = [];
-          let data = { email: loginData.email, password: loginData.password };
-          dataArray.push(data);
-          setValue(dataArray);
+          const res = await axiosBasic.post('https://mt2-service.onrender.com/register', {
+          email: loginData.email,
+          password: loginData.password,
+          returnSecureToken: true
+        });
+        if(res.data.success === false){
+          setError({...error, message: "Konto o podanym emailu już istnieje.", set: true});
         } else {
-          state.push({ email: loginData.email, password: loginData.password });
-          setValue(state);
+          setLoginData({...loginData, created: true})
         }
-        setLoginData({...loginData, created: true})
       } else {
-        setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
+          setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
       }
-      setLoading(false)
-    }, 750);
+    } catch (err) {
+      setError({ ...error, message: String(err), set: true });
+    }
+    setLoading(false)
   };
   return (
     <>

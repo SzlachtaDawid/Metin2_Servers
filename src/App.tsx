@@ -19,12 +19,22 @@ const App: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
   const wrapper = useRef<HTMLDivElement | null>(null);
 
+  function checkUser(){
+    const tokenDataStorage: string | null = window.localStorage.getItem('token-data')
+    if(tokenDataStorage){
+      setAuth(true)
+    } else {
+      setAuth(false)
+    }
+  }
+
   useEffect(() => {
     let imageList: string[] = [imgHome, imgServers, imgYt, imgContact];
     imageList.forEach((image) => {
       const img = new Image();
       img.src = image;
     });
+    checkUser()
   }, []);
 
   function changeBackground(className: string) {

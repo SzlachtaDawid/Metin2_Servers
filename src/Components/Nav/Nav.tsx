@@ -65,7 +65,7 @@ function Nav() {
         {auth ? (
           <NavLink to={`/Metin2_Servers`}>
             <button
-              onClick={() => setAuth(false)}
+              onClick={() => setAuth(false, null)}
               className="button button--log"
             >
               Wyloguj
