@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import "./Contact.scss";
+import "./ContactPage.scss";
 import BackgroundContext from "../../context/backgroundContext";
 
 function Contact() {

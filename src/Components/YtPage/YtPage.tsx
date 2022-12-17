@@ -1,6 +1,6 @@
 import  { useEffect, useState, useContext } from "react";
 import Search from "../UI/Search/Search";
-import "./Yt.scss";
+import "./YtPage.scss";
 import YtChanel from "./YtChanel/YtChanel";
 import Sort from "./Sort/Sort"
 import noperfect from "../../assets/img/noperfect.jpg";

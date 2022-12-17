@@ -1,13 +1,13 @@
 import "./App.scss";
 import "./Style/main.scss";
-import HomeP from "./Components/HomeP/HomeP";
+import Home from "./Components/HomePage/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav/Nav";
-import ServerList from "./Components/ServerList/ServerList";
+import ServerList from "./Components/ServerListPage/ServerListPage";
 import { useEffect, useRef, useState } from "react";
-import Yt from "./Components/Yt/Yt";
-import Contact from "./Components/Contact/Contact";
-import Account from "./Components/Account/Account";
+import Yt from "./Components/YtPage/YtPage";
+import Contact from "./Components/ContactPage/ContactPage";
+import Account from "./Components/AccountPage/AccountPage";
 import BackgroundContext from "./context/backgroundContext";
 import AuthContext from "./context/authContext";
 import imgHome from "./assets/img/Metin_2_Sura.jpg";
@@ -80,7 +80,7 @@ const App: React.FC = () => {
           <Router>
             <Nav />
             <Routes>
-              <Route path="/Metin2_Servers" element={<HomeP />} />
+              <Route path="/Metin2_Servers" element={<Home />} />
               <Route path="/serverList" element={<ServerList />} />
               <Route path="/Yt" element={<Yt />} />
               <Route path="/contact" element={<Contact />} />

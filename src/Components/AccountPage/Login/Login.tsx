@@ -91,7 +91,7 @@ function Login() {
             placeholder="Hasło"
             maxLength={30}
           />
-          {error.set && <p className="login__error">{error.message}</p>}
+          {error.set && <p className="error">{error.message}</p>}
           <div className="login__buttonContainer">
             <button className="button button--account">Zaloguj</button>
             {loading ? (

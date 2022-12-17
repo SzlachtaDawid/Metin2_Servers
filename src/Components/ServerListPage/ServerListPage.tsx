@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import Search from "../UI/Search/Search";
-import "./ServerList.scss";
+import "./ServerListPage.scss";
 import Serwer from "./Serwer/Serwer";
 import tamidia from "../../assets/img/tamidia.jpg";
 import balmora from "../../assets/img/balmora.png";

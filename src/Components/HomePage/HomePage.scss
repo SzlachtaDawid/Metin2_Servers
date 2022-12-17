@@ -46,3 +46,14 @@
     }
   }
 }
+
+@media (max-height: 460px) and (orientation: landscape) {
+  .home {
+    position: static;
+    color: $primary-color;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 80px 15px 20px;
+  }
+}

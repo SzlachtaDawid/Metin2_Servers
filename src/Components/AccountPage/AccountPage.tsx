@@ -1,4 +1,4 @@
-import "./Account.scss";
+import "./AccountPage.scss";
 import warrior from "../../assets/img/Warrior_Male.png";
 import Login from "./Login/Login";
 import Register from "./Register/Register";

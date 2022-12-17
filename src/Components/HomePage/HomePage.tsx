@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./HomeP.scss";
+import "./HomePage.scss";
 import BackgroundContext from "../../context/backgroundContext";
 
 const HomeP = () => {
