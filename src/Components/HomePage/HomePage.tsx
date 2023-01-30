@@ -16,8 +16,8 @@ const HomeP = () => {
       <p className="home__text home__text--italic">
         Gwałtowne uderzenie Kamieni Metin rozdarło kontynent i pozostawiło
         straszliwą pustkę w niegdyś kwitnącym królestwie Boga Smoków. Dobądź
-        swego miecza i staw czoło mrocznym kreaturom
-        <strong> BLA BLA BLA</strong> ...
+        swego miecza i staw czoło mrocznym kreaturom.
+        <strong> BLA BLA BLA ...</strong>
       </p>
       <p className="home__text">Szukasz Serwera Metin ? Dobrze trafiłeś !</p>
       <div className="home__btnContainer">
