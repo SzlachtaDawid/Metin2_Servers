@@ -12,6 +12,10 @@
   transition: 0.2s;
   padding: 3px 25px;
 
+  &__icon {
+    transform: translateY(6%);
+  }
+
   &--log {
     color: #c0c0c0;
     font-size: 1.4rem;

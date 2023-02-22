@@ -1,0 +1,28 @@
+@use "../../Style/variables" as *;
+@use "../../Style/mixins" as *;
+
+.register {
+  width: 100%;
+  @include setFlex(
+    $justify-content: center,
+    $flex-direction: column,
+    $align-items: stretch
+  );
+  color: $secondary-color;
+  text-align: center;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  &__text {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  &__buttonContainer {
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    margin:  0 auto;
+  }
+}

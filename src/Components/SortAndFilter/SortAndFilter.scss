@@ -1,0 +1,31 @@
+@use "../../Style/mixins" as *;
+@use "../../Style/variables" as *;
+
+.sortAndFilter {
+    width: 100%;
+    margin: 0 auto;
+    @include setFlex();
+    padding-bottom: 10px;
+    border-bottom: $border;
+
+    &__title {
+       margin: 5px 0px;
+       font-size: 1.6rem;
+    }
+
+    &__container {
+        @include setFlex($justify-content: flex-end);
+    }
+}
+
+@media all and (max-width:900px) {
+    .sortAndFilter {
+        flex-direction: column;
+
+        &__container {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+

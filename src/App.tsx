@@ -1,13 +1,13 @@
 import "./App.scss";
 import "./Style/main.scss";
-import Home from "./Components/HomePage/HomePage";
+import Home from "./Pages/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav/Nav";
-import ServerList from "./Components/ServerListPage/ServerListPage";
+import ServerList from "./Pages/ServerList/ServerList";
 import { useEffect, useRef, useState } from "react";
-import Yt from "./Components/YtPage/YtPage";
-import Contact from "./Components/ContactPage/ContactPage";
-import Account from "./Components/AccountPage/AccountPage";
+import Yt from "./Pages/Yt/Yt";
+import Contact from "./Pages/Contact/Contact";
+import Account from "./Pages/Account/Account";
 import BackgroundContext from "./context/backgroundContext";
 import AuthContext from "./context/authContext";
 import imgHome from "./assets/img/Metin_2_Sura.jpg";
