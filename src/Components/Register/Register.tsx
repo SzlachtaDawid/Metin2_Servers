@@ -35,7 +35,7 @@ function Login() {
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true)
-    const emailValateInfo = emailValidation(loginData.email);
+    const emailValateInfo = emailValidation(loginData.email );
     const passwordValateInfo = passwordValidation(loginData.password);
     try {
       if(emailValateInfo === '' && passwordValateInfo === '') {
