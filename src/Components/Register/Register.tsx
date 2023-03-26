@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import emailValidator from "../../hooks/validEmail"
 import passwordValidator from "../../hooks/validPassword"
 import LoadingBtn from "../UI/LoadingBtn/LoadingBtn";
-import axiosBasic from 'axios'
-import { Key } from "../../Enums/key";
+import registerApiService from "../../Services/registerService";
 
 interface LoginData {
   email: string;
@@ -14,7 +13,7 @@ interface LoginData {
 }
 
 interface Error {
-  message: string;
+  message?: string;
   set: boolean;
 }
 
@@ -37,35 +36,21 @@ function Login() {
     setLoading(true)
     const emailValateInfo = emailValidation(loginData.email);
     const passwordValateInfo = passwordValidation(loginData.password);
-    try {
-      if(emailValateInfo === '' && passwordValateInfo === '') {
-          await axiosBasic.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${Key.API_KEY}`, {
-          email: loginData.email,
-          password: loginData.password,
-          returnSecureToken: true
-        });
-        setLoginData({...loginData, created: true})
+      if (emailValateInfo === "" && passwordValateInfo === "") {
+        const response = await registerApiService(loginData);
+        if (response.status === "succes") {
+          setLoginData({ ...loginData, created: true });
+        }
+        if (response.status === "fail") {
+          setError({ ...error, message: response.error, set: true });
+        }
       } else {
-        setError({...error, message: emailValateInfo + passwordValateInfo ,set: true}) 
+        setError({
+          ...error,
+          message: emailValateInfo + passwordValateInfo,
+          set: true,
+        });
       }
-    } catch (err: any) {
-      const errorMessage = err.response.data.error.message
-      switch (errorMessage) {
-        case "EMAIL_EXISTS":
-          setError({ ...error, message: String("Konto o podanym mailu już istnieje."), set: true });
-          break;
-        case "OPERATION_NOT_ALLOWED":
-          setError({ ...error, message: String("Rejestracja za pomocą hasła jest aktualnie wyłączona. Przepraszamy."), set: true });
-          break;
-        case "TOO_MANY_ATTEMPTS_TRY_LATER":
-          setError({ ...error, message: String("Zbyt wiele prób rejestracji, spróbuj ponownie później."), set: true });
-          break;  
-        default:
-          setError({ ...error, message: String(errorMessage), set: true });
-          break;
-      }
-      setError({ ...error, message: String(err), set: true });
-    }
     setLoading(false)
   };
   return (

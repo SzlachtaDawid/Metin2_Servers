@@ -13,7 +13,7 @@ interface LoginData {
 }
 
 interface Error {
-  message: string;
+  message?: string;
   set: boolean;
 }
 

@@ -1,5 +1,9 @@
-import axiosBasic from 'axios'
+import axiosBasic, { AxiosError } from 'axios'
 import { Key } from '../Enums/key';
+
+interface Error {
+  error: {message: string}
+}
 
 interface LoginData {
     email: string;
@@ -19,15 +23,11 @@ async function loginApiService(loginData : LoginData) {
                 email: res.data.email,
                 token: res.data.idToken,
                 userId: res.data.localId,
-        },
-            error: ''
+        }
         })
-        // setTimeout(() => {
-        //   navigate("/Metin2_Servers");
-        // }, 1000);
-        // zmienic type any
-      } catch (err: any) {
-        const errorMessage = err.response.data.error.message
+      } catch (err) {
+        const error = err as AxiosError<Error>;
+        const errorMessage = error.response?.data.error.message
         switch (errorMessage) {
           case "EMAIL_NOT_FOUND":
             return ({
