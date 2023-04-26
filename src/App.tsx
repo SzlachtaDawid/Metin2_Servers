@@ -27,6 +27,10 @@ const App: React.FC = () => {
       setAuth(false)
     }
   }
+  const test = () => {
+			console.log('test')
+	        console.log('test2')
+  }
 
   useEffect(() => {
     let imageList: string[] = [imgHome, imgServers, imgYt, imgContact];
